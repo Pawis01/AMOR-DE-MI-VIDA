@@ -1,0 +1,528 @@
+/* ================================
+   ESTILO GENERAL
+================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: "Poppins", Arial, sans-serif;
+
+    background:
+        radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.35), transparent 30%),
+        linear-gradient(135deg, #5c001b, #a9003d, #e94f78, #ff9eb5);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* ================================
+   CORAZONES COLGANDO
+================================ */
+.decoracion {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform-origin: top center;
+    z-index: 1;
+
+    animation: balanceo 3.5s ease-in-out infinite;
+}
+/* Posiciones */
+.d1 {
+    left: 5%;
+    animation-delay: -1s;
+}
+
+.d2 {
+    left: 17%;
+    animation-delay: -2.2s;
+}
+
+.d3 {
+    left: 30%;
+    animation-delay: -0.5s;
+}
+
+.d4 {
+    right: 30%;
+    animation-delay: -1.7s;
+}
+
+.d5 {
+    right: 17%;
+    animation-delay: -2.8s;
+}
+
+.d6 {
+    right: 5%;
+    animation-delay: -0.8s;
+}
+
+.d7 {
+    left: 43%;
+    animation-delay: -2s;
+}
+
+/* Hilos */
+.hilo {
+    width: 2px;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.9),
+        rgba(255, 255, 255, 0.35)
+    );
+
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+}
+
+/* Diferentes tamaños de hilo */
+.d1 .hilo {
+    height: 120px;
+}
+
+.d2 .hilo {
+    height: 180px;
+}
+
+.d3 .hilo {
+    height: 90px;
+}
+
+.d4 .hilo {
+    height: 155px;
+}
+
+.d5 .hilo {
+    height: 110px;
+}
+
+.d6 .hilo {
+    height: 200px;
+}
+
+.d7 .hilo {
+    height: 135px;
+}
+
+
+/* ================================
+   CORAZONES DECORATIVOS
+================================ */
+
+.corazon {
+    width: 45px;
+    height: 45px;
+    position: relative;
+    transform: rotate(-45deg);
+    border-radius: 8px;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.25),
+        0 0 15px rgba(255, 255, 255, 0.2);
+
+    animation: latido 2s ease-in-out infinite;
+}
+
+.corazon::before,
+.corazon::after {
+    content: "";
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.corazon::before {
+    top: -22px;
+    left: 0;
+}
+
+.corazon::after {
+    top: 0;
+    left: 22px;
+}
+
+/* ================================
+   COLORES DE LOS CORAZONES
+================================ */
+
+.rojo,
+.rojo::before,
+.rojo::after {
+    background: #ff1744;
+}
+
+.rosa,
+.rosa::before,
+.rosa::after {
+    background: #ff4f81;
+}
+
+.fucsia,
+.fucsia::before,
+.fucsia::after {
+    background: #e91e63;
+}
+
+.morado,
+.morado::before,
+.morado::after {
+    background: #9c27b0;
+}
+
+.violeta,
+.violeta::before,
+.violeta::after {
+    background: #ba68c8;
+}
+
+.coral,
+.coral::before,
+.coral::after {
+    background: #ff6f61;
+}
+
+.vino,
+.vino::before,
+.vino::after {
+    background: #8e1638;
+}
+
+/* ================================
+   CONTENIDO CENTRAL
+================================ */
+
+.contenido {
+    position: relative;
+    z-index: 5;
+
+    width: 90%;
+    max-width: 600px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+/* Título */
+.titulo {
+    color: white;
+    font-size: clamp(28px, 5vw, 48px);
+    margin-bottom: 30px;
+
+    text-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.35),
+        0 0 15px rgba(255, 255, 255, 0.25);
+
+    animation: aparecer 1.5s ease;
+}
+
+
+/* ================================
+   BOTÓN
+================================ */
+
+button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    padding: 15px 30px;
+
+    border-radius: 50px;
+
+    background: linear-gradient(
+        135deg,
+        #ff1744,
+        #ff4f81
+    );
+
+    color: white;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.25),
+        0 0 15px rgba(255, 100, 150, 0.4);
+
+    transition: 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.08);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.3),
+        0 0 25px rgba(255, 255, 255, 0.5);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* ================================
+   CORAZÓN CENTRAL
+================================ */
+
+.corazon-central {
+    width: 95px;
+    height: 95px;
+
+    position: relative;
+
+    margin-top: 45px;
+
+    background: #ff1744;
+
+    transform: rotate(-45deg);
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.3),
+        0 0 30px rgba(255, 80, 120, 0.7);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    animation: aparecerCorazon 0.8s ease forwards;
+}
+
+.corazon-central::before,
+.corazon-central::after {
+    content: "";
+
+    width: 95px;
+    height: 95px;
+
+    position: absolute;
+
+    background: #ff1744;
+
+    border-radius: 50%;
+}
+
+.corazon-central::before {
+    top: -47px;
+    left: 0;
+}
+
+.corazon-central::after {
+    top: 0;
+    left: 47px;
+}
+
+/* Frase dentro del corazón */
+
+.frase {
+    position: absolute;
+
+    width: 150px;
+
+    z-index: 10;
+
+    transform: rotate(45deg);
+
+    color: white;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    line-height: 1.3;
+
+    text-align: center;
+
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* ================================
+   ANIMACIONES
+================================ */
+
+@keyframes balanceo {
+
+    0% {
+        transform: rotate(4deg);
+    }
+
+    50% {
+        transform: rotate(-4deg);
+    }
+
+    100% {
+        transform: rotate(4deg);
+    }
+}
+
+@keyframes latido {
+
+    0%,
+    100% {
+        transform: rotate(-45deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(-45deg) scale(1.08);
+    }
+}
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes aparecerCorazon {
+
+    0% {
+        opacity: 0;
+        transform: rotate(-45deg) scale(0);
+    }
+
+    60% {
+        opacity: 1;
+        transform: rotate(-45deg) scale(1.15);
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotate(-45deg) scale(1);
+    }
+}
+
+/* ================================
+   BRILLO DE LOS CORAZONES
+================================ */
+
+.decoracion::before {
+    content: "";
+
+    position: absolute;
+
+    width: 8px;
+    height: 8px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    top: -4px;
+
+    box-shadow:
+        0 0 8px white,
+        0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+/* ================================
+   RESPONSIVE PARA CELULAR
+================================ */
+
+@media (max-width: 600px) {
+
+    .decoracion {
+        transform-origin: top center;
+    }
+
+    .corazon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .corazon::before,
+    .corazon::after {
+        width: 32px;
+        height: 32px;
+    }
+
+    .corazon::before {
+        top: -16px;
+    }
+
+    .corazon::after {
+        left: 16px;
+    }
+
+    .d1 .hilo {
+        height: 80px;
+    }
+
+    .d2 .hilo {
+        height: 120px;
+    }
+
+    .d3 .hilo {
+        height: 65px;
+    }
+
+    .d4 .hilo {
+        height: 100px;
+    }
+
+    .d5 .hilo {
+        height: 75px;
+    }
+
+    .d6 .hilo {
+        height: 135px;
+    }
+
+    .d7 .hilo {
+        height: 95px;
+    }
+
+    .titulo {
+        font-size: 28px;
+        margin-bottom: 25px;
+    }
+
+    button {
+        font-size: 15px;
+        padding: 13px 25px;
+    }
+
+    .corazon-central {
+        width: 75px;
+        height: 75px;
+    }
+
+    .corazon-central::before,
+    .corazon-central::after {
+        width: 75px;
+        height: 75px;
+    }
+
+    .corazon-central::before {
+        top: -37px;
+    }
+
+    .corazon-central::after {
+        left: 37px;
+    }
+
+    .frase {
+        width: 125px;
+        font-size: 13px;
+    }
+}
